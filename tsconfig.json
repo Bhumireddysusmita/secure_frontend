@@ -18,5 +18,8 @@
     "noFallthroughCasesInSwitch": true,
     "types": ["vite/client"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  // Unit tests read shared data from ../test-data (outside this folder). They are run by Vitest,
+  // not shipped, so the production type-check skips them; this lets `frontend/` build on its own.
+  "exclude": ["src/**/*.test.ts"]
 }
